@@ -1,0 +1,233 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Fis Hub", HidePremium = false, SaveConfig = false, ConfigFolder = "Fis Hub"})
+
+
+--Value
+
+_G.AutoOpenGildedVoid = true
+
+_G.AutoOpenGilded = true
+
+_G.autofish = true
+
+_G.autoOpenancient = true
+
+_G.autoOpenlargetrove = true
+
+_G.autoOpenlargevoid = true
+
+_G.autoOpensmalltrove = true
+
+_G.autoOpentrash = true
+--function
+
+function AutoOpenGilded()
+    while _G.AutoOpenGilded == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{CB79CE58-18F9-4904-9C6D-CA4F24389A7D}",
+            [3] = "GildedTrove",
+            [4] = "None"
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+        wait(.0000000000001)  
+    end
+end
+
+
+
+function Autofish()
+    while _G.autofish == true do
+        local args = {
+            [1] = "Fish",
+            [2] = "{2C5A38EF-510E-4E61-B8E3-1491A8D9A0D5}"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+        wait(.00000000001)
+    end 
+end      
+
+
+function autoOpenancient()
+    while _G.autoOpenancient == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{40D0383F-D474-424F-AC46-7F412A624E57}",
+            [3] = "AncientTrove",
+            [4] = "None"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+        
+        wait(.0000000000001)  
+    end
+end
+
+function autoOpenlargetrove()
+    while _G.autoOpenlargetrove == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{912BA00F-37DE-4CD8-AB61-099EBB336E56}",
+            [3] = "LargeTrove",
+            [4] = "None"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+        wait(.0000000000001)  
+    end
+end
+
+function AutoOpenGildedVoid()
+    while _G.AutoOpenGildedVoid == true do
+            local args = {
+                [1] = "OpenTrove",
+                [2] = "{AD840057-2368-4B43-9C86-353A237E2D18}",
+                [3] = "GildedTrove",
+                [4] = "Voidworn"
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+            
+           wait(.0000000000001)  
+    end
+end
+
+function autoOpenlargevoid()
+    while _G.autoOpenlargevoid == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{7AAB04A8-4441-4015-84A5-1EEC25FBE61A}",
+            [3] = "LargeTrove",
+            [4] = "Voidworn"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+           wait(.0000000000001)  
+    end
+end
+
+function autoOpensmalltrove()
+    while _G.autoOpensmalltrove == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{5905FAD1-C3AF-4DB5-A692-231F96D20424}",
+            [3] = "SmallTrove",
+            [4] = "None"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+            
+           wait(.0000000000001)  
+    end
+end
+
+function autoOpentrash()
+    while _G.autoOpentrash == true do
+        local args = {
+            [1] = "OpenTrove",
+            [2] = "{7CA0310D-2838-4CE7-B5EB-9807E6425015}",
+            [3] = "TrashTrove",
+            [4] = "None"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))              
+           wait(.0000000000001)  
+    end
+end
+
+
+--Troves
+
+
+
+local Tab = Window:MakeTab({
+	Name = "troves",
+	Icon = "rbxassetid://18808599901",
+	PremiumOnly = false
+})
+
+
+
+Tab:AddToggle({
+	Name = "AutoOpen Gilded Trove",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoOpenGilded = Value
+        AutoOpenGilded()
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "AutoOpen Ancient Tarove ",
+	Default = false,
+	Callback = function(Value)
+		_G.autoOpenancient = Value
+        autoOpenancient()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "AutoOpen large Tarove ",
+	Default = false,
+	Callback = function(Value)
+		_G.autoOpenlargetrove = Value
+        autoOpenlargetrove()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "AutoOpen gilded Void ",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoOpenGildedVoid = Value
+        AutoOpenGildedVoid()
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "AutoOpen Large Void ",
+	Default = false,
+	Callback = function(Value)
+		_G.autoOpenlargevoid = Value
+        autoOpenlargevoid()
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "AutoOpen SmallTrove ",
+	Default = false,
+	Callback = function(Value)
+		_G.autoOpensmalltrove = Value
+        autoOpensmalltrove()
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "AutoOpenTrash",
+	Default = false,
+	Callback = function(Value)
+		_G.autoOpentrash = Value
+        autoOpentrash()
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "fishing",
+	Icon = "rbxassetid://18808599901",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "auto fish",
+	Default = false,
+	Callback = function(Value)
+		_G.autofish = Value 
+        Autofish()
+	end    
+})
+
